@@ -3,8 +3,9 @@ import '../homepage/homepage.css';
 
 function homepage() {
   return (
-    <div>
-      homepage
+    <div className='homepage'>
+      <h1>Hello User Welcome to the homepage</h1>
+      <button className='button'> logout</button>
     </div>
   )
 }
