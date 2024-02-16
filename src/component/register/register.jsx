@@ -25,13 +25,17 @@ function Register() {
   }
 
   const register = () =>{
-    const {name , email , password } = user;
-    
+    const {name , email , password , reEnterPassword } = user;
+    if(name && email && password && password===reEnterPassword){
+      alert('posted');
+    }else{
+      alert("invalid users");
+    }
+
   }
   return (
     <div className='register'>
-      {console.log("user" ,user)}
-      <h1>Regiter</h1>
+      <h1>Register</h1>
       <input type='text' name="name" value={user.name} placeholder='your Name' onChange={handleChange}></input>
       <input type='text' name="email" value={user.email} placeholder='your Email' onChange={handleChange}></input>
       <input type='password' name="password" value={user.password} placeholder='your Password' onChange={handleChange}></input>
