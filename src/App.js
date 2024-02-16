@@ -1,6 +1,6 @@
-import Homepage  from "./component/homepage/homepage";
+// import Homepage  from "./component/homepage/homepage";
 import Register from "./component/register/register";
-import Login from "./component/login-UI/login";
+// import Login from "./component/login-UI/login";
 import '../src/App.css';
 
 function App() {
