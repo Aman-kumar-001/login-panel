@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../login-UI/login.css';
 
+
 function Login() {
 
 
@@ -12,12 +13,22 @@ function Login() {
 
 const handleChange = (e) =>{
   
-  // const {name , value } = e.target;
+  const {name , value } = e.target;
   setUser({
     ...user,
-    [e.target.name] : e.target.value
+    [name] : value
   })
   // console.log(user)
+}
+
+const loginPage =  async (e) =>{
+  e.preventDefault();
+ const response = await fetch('http://localhost:8000/login' ,{ method:'POST',
+ body:JSON.stringify(user),
+ headers:{
+   'Content-type' : 'application/json'}})
+ const data = response.text();
+ console.log(data)
 }
 
 
@@ -26,7 +37,7 @@ const handleChange = (e) =>{
       <h1>Login</h1>
       <input type='text'name='email' value={user.email} placeholder='enter your Email' onChange={handleChange}></input> 
       <input type='password' name='password' value={user.password} placeholder='enter your Password' onChange={handleChange}></input> 
-      <div className="button">Login</div>
+      <div className="button"  onClick={loginPage}>Login</div>
       <div>or</div>
       <div className="button">Register</div>
     </div>
