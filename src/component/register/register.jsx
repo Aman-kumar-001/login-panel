@@ -23,6 +23,11 @@ function Register() {
     })
     console.log(user)
   }
+
+  const register = () =>{
+    const {name , email , password } = user;
+    
+  }
   return (
     <div className='register'>
       {console.log("user" ,user)}
@@ -31,7 +36,7 @@ function Register() {
       <input type='text' name="email" value={user.email} placeholder='your Email' onChange={handleChange}></input>
       <input type='password' name="password" value={user.password} placeholder='your Password' onChange={handleChange}></input>
       <input type='password' name="reEnterpassword" value={user.reEnterPassword} placeholder='Re-enter your password' onChange={handleChange}></input>
-      <div className="button">Register</div>
+      <div className="button" onClick={register}>Register</div>
       <div>or</div>
       <div className="button">Login</div>
     </div>
