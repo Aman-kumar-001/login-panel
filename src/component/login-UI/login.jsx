@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../login-UI/login.css';
 
-function login() {
+function Login() {
+
+
+  const [user , setUser] = useState({
+    email:"",
+    password:"",
+})
+
+
+const handleChange = (e) =>{
+  
+  // const {name , value } = e.target;
+  setUser({
+    ...user,
+    [e.target.name] : e.target.value
+  })
+  // console.log(user)
+}
+
+
   return (
     <div className='login'>
       <h1>Login</h1>
-      <input type='text' placeholder='enter your Email'></input> 
-      <input type='password' placeholder='enter your Password'></input> 
+      <input type='text'name='email' value={user.email} placeholder='enter your Email' onChange={handleChange}></input> 
+      <input type='password' name='password' value={user.password} placeholder='enter your Password' onChange={handleChange}></input> 
       <div className="button">Login</div>
       <div>or</div>
       <div className="button">Register</div>
@@ -14,5 +33,5 @@ function login() {
   )
 }
 
-export default login;
+export default Login;
 

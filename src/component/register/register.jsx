@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../register/register.css';
 
-function register() {
+
+
+function Register() {
+    
+
+  const [user , setUser] = useState({
+      name:"",
+      email:"",
+      password:"",
+      reEnterPassword:""
+  })
+
+
+  const handleChange = (e) =>{
+    
+    // const {name , value } = e.target;
+    setUser({
+      ...user,
+      [e.target.name] : e.target.value
+    })
+    console.log(user)
+  }
   return (
     <div className='register'>
+      {console.log("user" ,user)}
       <h1>Regiter</h1>
-      <input type='text' placeholder='your Name'></input>
-      <input type='text' placeholder='your Email'></input>
-      <input type='password' placeholder='your Password'></input>
-      <input type='password' placeholder='Re-enter your password'></input>
+      <input type='text' name="name" value={user.name} placeholder='your Name' onChange={handleChange}></input>
+      <input type='text' name="email" value={user.email} placeholder='your Email' onChange={handleChange}></input>
+      <input type='password' name="password" value={user.password} placeholder='your Password' onChange={handleChange}></input>
+      <input type='password' name="reEnterpassword" value={user.reEnterPassword} placeholder='Re-enter your password' onChange={handleChange}></input>
       <div className="button">Register</div>
       <div>or</div>
       <div className="button">Login</div>
@@ -16,4 +38,4 @@ function register() {
   )
 }
 
-export default register;
+export default Register;
