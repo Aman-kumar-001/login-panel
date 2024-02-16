@@ -15,18 +15,18 @@ function Register() {
 
 
   const handleChange = (e) =>{
-    
+    e.preventDefault();
     const {name , value } = e.target;
     setUser({
       ...user,
       [name] : value
     })
-    e.preventDefault()
+    
     // console.log(user)
   }
 
   const register = async (e) =>{
-    e.preventDefault()
+    e.preventDefault();
     const {name , email , password  } = user;
     if(name && email && password ){
     const response = await fetch('http://localhost:8000/register' , { method:'POST',
