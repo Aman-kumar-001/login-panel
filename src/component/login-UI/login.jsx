@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-function Login() {
+function Login({setLoginUser}) {
 
  const navigate = useNavigate();
 
@@ -24,14 +24,19 @@ const handleChange = (e) =>{
   // console.log(user)
 }
 
+ 
+
 const loginPage =  async (e) =>{
   e.preventDefault();
  const response = await fetch('http://localhost:8000/login' ,{ method:'POST',
  body:JSON.stringify(user),
  headers:{
    'Content-type' : 'application/json'}})
- const data = response.text();
- console.log(data)
+ const data = await response.json();
+  console.log(data);
+  setLoginUser(data.alreadyUser);
+  navigate("./");
+   
 }
 
 
