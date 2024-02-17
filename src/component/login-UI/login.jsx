@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import '../login-UI/login.css';
+import { useNavigate } from 'react-router-dom';
+
 
 
 function Login() {
 
+ const navigate = useNavigate();
 
   const [user , setUser] = useState({
     email:"",
@@ -39,7 +42,7 @@ const loginPage =  async (e) =>{
       <input type='password' name='password' value={user.password} placeholder='enter your Password' onChange={handleChange}></input> 
       <div className="button"  onClick={loginPage}>Login</div>
       <div>or</div>
-      <div className="button">Register</div>
+      <div className="button" onClick={() => navigate("/register")}>Register</div>
     </div>
   )
 }

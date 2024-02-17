@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import '../register/register.css';
+import  {useNavigate} from "react-router-dom";
 
 
 
 function Register() {
     
+const navigate =  useNavigate();
 
   const [user , setUser] = useState({
       name:"",
@@ -50,7 +52,7 @@ function Register() {
       {/* <input type='password' name="reEnterpassword" value={user.reEnterPassword} placeholder='Re-enter your password' onChange={handleChange}></input> */}
       <div className="button" onClick={register}>Register</div>
       <div>or</div>
-      <div className="button">Login</div>
+      <div className="button" onClick={() => navigate('/login')}>Login</div>
     </div>
   )
 }

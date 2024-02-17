@@ -7,7 +7,11 @@
     width: 400px;
     background: #fff;
     border: 1px solid #dddfe2;
-    box-shadow: 0 2px 4px rgba(0,0,0 / 10%);
+    /* box-shadow: 0 2px 4px rgba(0,0,0 / 10%);
+     */
+     border-radius: 20px;
+     box-shadow: 0 0 15px 15px gray;
+     background: white;
     padding: 1rem;
     align-items: center;
     text-align: center;
