@@ -4,9 +4,13 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-function Login({setLoginUser}) {
+function Login() {
 
  const navigate = useNavigate();
+
+ const [loginUser ,setLoginUser] =useState({
+
+ })
 
   const [user , setUser] = useState({
     email:"",
@@ -24,6 +28,8 @@ const handleChange = (e) =>{
   // console.log(user)
 }
 
+
+
  
 
 const loginPage =  async (e) =>{
@@ -35,6 +41,7 @@ const loginPage =  async (e) =>{
  const data = await response.json();
   console.log(data);
   setLoginUser(data.alreadyUser);
+  console.log(setLoginUser);
   navigate("./");
    
 }
@@ -52,5 +59,5 @@ const loginPage =  async (e) =>{
   )
 }
 
-export default Login;
+export default Login();
 
